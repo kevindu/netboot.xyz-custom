@@ -14,7 +14,7 @@ goto ${custom_choice}
 goto custom_exit
 
 :option_one
-kernel https://raw.githubusercontent.com/kevindu/netboot.xyz-custom/master/vmlinuz-xen root=/dev/ram rootfstype=ramfs init=/bin/sh console=ttyS1,115200n8
+kernel https://raw.githubusercontent.com/kevindu/netboot.xyz-custom/master/vmlinuz-xen root=/dev/ram rootfstype=ramfs selinux=0 init=/bin/sh console=ttyS1,115200n8
 initrd https://raw.githubusercontent.com/kevindu/netboot.xyz-custom/master/initrd-sn.img
 boot || goto custom_exit
 
