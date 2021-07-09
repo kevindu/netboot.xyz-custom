@@ -4,9 +4,20 @@
 ###
 
 :start
-echo Hello world!
-sleep 10
+clear custom_choice
+menu This is a Test Menu
+item --gap This is the first sub menu
+item option_one ${space} Loading a kernel and initrd
+choose custom_choice || goto custom_exit
+echo ${cls}
+goto ${custom_choice}
 goto custom_exit
+
+:option_one
+kernel https://raw.githubusercontent.com/kevindu/netboot.xyz-custom/master/vmlinuz-xen
+initrd https://raw.githubusercontent.com/kevindu/netboot.xyz-custom/master/initrd-sn.img
+imgargs vmlinuz-xen quiet root=/dev/ram rootfstype=ramfs selinux=0 init=/bin/sh launch_config=2 launch_key=16652 build_version=R20210427-094512-9596
+boot || goto custom_exit
 
 :custom_exit
 exit 0
