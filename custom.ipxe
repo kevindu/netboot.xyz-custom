@@ -16,7 +16,7 @@ goto custom_exit
 :option_one
 kernel https://raw.githubusercontent.com/kevindu/netboot.xyz-custom/master/vmlinuz-xen
 initrd https://raw.githubusercontent.com/kevindu/netboot.xyz-custom/master/initrd-sn.img
-imgargs vmlinuz-xen console=ttyS1,115200n8
+imgargs vmlinuz-xen root=/dev/ram rootfstype=ramfs console=ttyS1,115200n8
 boot || goto custom_exit
 
 :custom_exit
