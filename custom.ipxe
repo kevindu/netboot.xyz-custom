@@ -19,7 +19,7 @@ goto custom_exit
 #imgargs vmlinuz-xen root=/dev/ram rootfstype=ramfs selinux=0 init=/bin/sh console=ttyS1,115200n8
 kernel http://archive.ubuntu.com/ubuntu/dists/focal/main/installer-amd64/current/legacy-images/netboot/ubuntu-installer/amd64/linux
 initrd http://archive.ubuntu.com/ubuntu/dists/focal/main/installer-amd64/current/legacy-images/netboot/ubuntu-installer/amd64/initrd.gz
-imgargs linux console=ttyS1,115200n8 auto=true fb=false priority=critical DEBCONF_DEBUG=5 root=/dev/ram rootfstype=ramfs
+imgargs linux console=ttyS1,115200n8 auto=true fb=false priority=critical DEBCONF_DEBUG=5 root=/dev/ram0 rootfstype=ramfs
 boot || goto custom_exit
 
 :custom_exit
