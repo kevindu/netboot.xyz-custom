@@ -14,9 +14,12 @@ goto ${custom_choice}
 goto custom_exit
 
 :option_one
-kernel https://raw.githubusercontent.com/kevindu/netboot.xyz-custom/master/vmlinuz-xen
-initrd https://raw.githubusercontent.com/kevindu/netboot.xyz-custom/master/newinitrd
-imgargs vmlinuz-xen root=/dev/ram rootfstype=ramfs selinux=0 init=/bin/sh console=ttyS1,115200n8
+#kernel https://raw.githubusercontent.com/kevindu/netboot.xyz-custom/master/vmlinuz-xen
+#initrd https://raw.githubusercontent.com/kevindu/netboot.xyz-custom/master/newinitrd
+#imgargs vmlinuz-xen root=/dev/ram rootfstype=ramfs selinux=0 init=/bin/sh console=ttyS1,115200n8
+kernel http://archive.ubuntu.com/ubuntu/dists/focal/main/installer-amd64/current/legacy-images/netboot/ubuntu-installer/amd64/linux
+initrd http://archive.ubuntu.com/ubuntu/dists/focal/main/installer-amd64/current/legacy-images/netboot/ubuntu-installer/amd64/initrd.gz
+imgargs linux console=ttyS1,115200n8 auto=true fb=false priority=critical DEBCONF_DEBUG=5
 boot || goto custom_exit
 
 :custom_exit
