@@ -2,5 +2,5 @@
 
 kernel https://raw.githubusercontent.com/kevindu/netboot.xyz-custom/master/vmlinuz-xen
 initrd https://raw.githubusercontent.com/kevindu/netboot.xyz-custom/master/newinitrd
-imgargs vmlinuz-xen root=/dev/ram rootfstype=ramfs selinux=0 init=/bin/sh console=ttyS1,115200n8
+imgargs vmlinuz-xen root=/dev/ram rootfstype=ramfs selinux=0 init=/bin/sh launch_config=1 console=ttyS1,115200n8
 boot
