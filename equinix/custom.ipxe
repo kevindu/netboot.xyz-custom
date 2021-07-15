@@ -1,0 +1,25 @@
+#!ipxe
+###
+### netboot.xyz-custom menu
+###
+
+:start
+clear custom_choice
+menu This is a Test Menu
+item --gap This is the first sub menu
+item option_one ${space} Loading a kernel and initrd
+choose custom_choice || goto custom_exit
+echo ${cls}
+goto ${custom_choice}
+goto custom_exit
+
+:option_one
+kernel https://raw.githubusercontent.com/kevindu/netboot.xyz-custom/master/vmlinuz-xen
+initrd https://raw.githubusercontent.com/kevindu/netboot.xyz-custom/master/newinitrd
+imgargs vmlinuz-xen root=/dev/ram rootfstype=ramfs selinux=0 init=/bin/sh console=ttyS1,115200n8
+#kernel http://archive.ubuntu.com/ubuntu/dists/focal/main/installer-amd64/current/legacy-images/netboot/ubuntu-installer/amd64/linux console=ttyS1,115200n8 auto=true fb=false priority=critical DEBCONF_DEBUG=5
+#initrd http://archive.ubuntu.com/ubuntu/dists/focal/main/installer-amd64/current/legacy-images/netboot/ubuntu-installer/amd64/initrd.gz
+boot || goto custom_exit
+
+:custom_exit
+exit 0
